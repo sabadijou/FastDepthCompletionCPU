@@ -5,6 +5,8 @@ import cv2
 
 kernels = kernel()
 
+
+
 def create_map(main_image,
                depth_map,
                max_depth=100.0,
@@ -14,27 +16,8 @@ def create_map(main_image,
                extrapolate=False,
                blur_type='bilateral',
                show_process=False):
-    """Slower, multi-scale dilation version with additional noise removal that
-    provides better qualitative results.
 
-    Args:
-        depth_map: projected depths
-        max_depth: max depth value for inversion
-        dilation_kernel_far: dilation kernel to use for 30.0 < depths < 80.0 m
-        dilation_kernel_med: dilation kernel to use for 15.0 < depths < 30.0 m
-        dilation_kernel_near: dilation kernel to use for 0.1 < depths < 15.0 m
-        extrapolate:whether to extrapolate by extending depths to top of
-            the frame, and applying a 31x31 full kernel dilation
-        blur_type:
-            'gaussian' - provides lower RMSE
-            'bilateral' - preserves local structure (recommended)
-        show_process: saves process images into an OrderedDict
 
-    Returns:
-        depth_map: dense depth map
-        process_dict: OrderedDict of process images
-    """
-    # Convert to float32
     depths_in = np.float32(depth_map)
 
     # Calculate bin masks before inversion

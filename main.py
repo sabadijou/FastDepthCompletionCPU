@@ -13,6 +13,17 @@ class DepthCompletion:
         self.extrapolate = True
         self.blur_type = 'gaussian'
         self.img_size = (450, 130)
+    def save_for_evaluation(self, sufficient_depth, img_name):
+
+        path = r'outputs/kitti/depth_for_evaluation/'
+        cv2.imwrite(path + img_name, sufficient_depth)
+
+    def save_final_outputs(self, img, img_name):
+
+        path = r'outputs/kitti/final_output/'
+        img = cv2.applyColorMap(np.uint8(img / np.amax(img) * 255), cv2.COLORMAP_JET)
+        cv2.imwrite(path + img_name, img)
+
 
     def process(self):
 
@@ -35,7 +46,10 @@ class DepthCompletion:
                                                                      blur_type=self.blur_type,
                                                                      show_process=True)
             self.show_result(process_dict, main_image)
-
+            self.save_for_evaluation(process_dict['s9_depths_out'], img_pathes[i])
+            self.save_final_outputs(process_dict['s9_depths_out'], img_pathes[i])
+        import metrics
+        metrics.print_metrics()
     def show_image(self, window_name, image, size_wh=None, location_xy=None):
 
         if size_wh is not None:
@@ -85,7 +99,8 @@ class DepthCompletion:
                     img_x = x_start
                     row_idx += 1
                 img_y = y_start + row_idx * (y_offset + y_padding)
-        cv2.waitKey(delay=100)
+        cv2.waitKey(delay=1)
+
 
 
 if __name__ == '__main__':
