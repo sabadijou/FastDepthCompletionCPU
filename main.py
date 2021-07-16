@@ -8,10 +8,8 @@ class DepthCompletion:
 
     def __init__(self):
 
-        self.main_img_path = os.path.expanduser(r'dataset\image')
-        self.input_depth_dir = os.path.expanduser(r'dataset\velodyne_raw')
-        self.extrapolate = True
-        self.blur_type = 'gaussian'
+        self.main_img_path = os.path.expanduser(r'dataset\kitti_validation_cropped\image')
+        self.input_depth_dir = os.path.expanduser(r'dataset\kitti_validation_cropped\velodyne_raw')
         self.img_size = (450, 130)
     def save_for_evaluation(self, sufficient_depth, img_name):
 
@@ -42,8 +40,6 @@ class DepthCompletion:
             projected_depths = np.float32(depth_image / 255.0)
             final_depths, process_dict = design_depth_map.create_map(main_image,
                                                                      projected_depths,
-                                                                     extrapolate=self.extrapolate,
-                                                                     blur_type=self.blur_type,
                                                                      show_process=True)
             self.show_result(process_dict, main_image)
             self.save_for_evaluation(process_dict['s9_depths_out'], img_pathes[i])

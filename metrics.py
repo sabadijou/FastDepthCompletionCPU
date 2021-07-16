@@ -3,7 +3,7 @@ import os
 import numpy as np
 
 
-main_img_path = os.path.expanduser(r'dataset\groundtruth_depth')
+main_img_path = os.path.expanduser(r'dataset\kitti_validation_cropped\groundtruth_depth')
 main_img_pathes = os.listdir(main_img_path)
 main_img_path_e = os.path.expanduser(r'outputs/kitti/depth_for_evaluation')
 main_img_pathes_e = os.listdir(main_img_path_e)
@@ -11,13 +11,13 @@ main_img_pathes_e = os.listdir(main_img_path_e)
 # Load Groundtruth
 gt = []
 for item in main_img_pathes:
-    gt.append(np.asarray(cv2.imread(main_img_path + '/' + item, cv2.IMREAD_GRAYSCALE)))
+    gt.append(np.asarray(cv2.imread(main_img_path + '/' + item)))
 
 
 # Load Results
 results = []
 for item in main_img_pathes_e:
-    results.append(np.asarray(cv2.imread(main_img_path_e + '/' + item, cv2.IMREAD_GRAYSCALE)))
+    results.append(np.asarray(cv2.imread(main_img_path_e + '/' + item)))
 
 
 class Metrics:
@@ -33,6 +33,7 @@ class Metrics:
         mae = np.mean(diff)
         return rmse, mae
 
+
 def print_metrics():
     print('Calculating Metrics ....')
     x = Metrics()
@@ -43,7 +44,20 @@ def print_metrics():
         rmse.append(_rmse)
         mae.append(_mae)
 
-    print('Evaluation Metrics : RMSE = {h1}     MAE = {h2} '.format(h1 = (np.sum(rmse)/len(rmse)), h2 = np.sum(mae)/len(mae)))
+
+    print('Evaluation Metrics : \n '
+          '\nAverage RMSE = {h1}     '
+          '\nAverage MAE = {h2}  '
+          '\nMin RMSE = {min} '
+          '\nMin MAE = {minmae}  '
+          '\nMax RMSE = {maxr}  '
+          '\nMax MAE = {maxm} '.format(h1 = np.mean(rmse),
+                                     h2 = np.mean(mae),
+                                     min = np.min(rmse),
+                                     minmae = np.min(mae),
+                                     maxr = np.max(rmse),
+                                     maxm = np.max(mae)
+                                     ))
 
 
 
