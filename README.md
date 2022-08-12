@@ -3,6 +3,8 @@ This repository provides an implementation for the following paper.
 
 Paper title: In Defense of Classical Image Processing: Fast Depth Completion on the CPU
 
+the paper have employed classical image processing methods to predict depth in LIDAR images. To do so, the algorithm contains a set of  MORPHOLOGY tricks.
+
 Numpy and OpenCV is used to implement the approach.
 
 Paper Abstract: 
