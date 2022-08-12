@@ -1,25 +1,25 @@
 certifi==2021.5.30
 cycler==0.10.0
 joblib==1.0.1
-kiwisolver @ file:///C:/ci/kiwisolver_1612282606037/work
-matplotlib @ file:///C:/ci/matplotlib-suite_1613408055530/work
+kiwisolver
+matplotlib
 mkl-fft==1.3.0
-mkl-random @ file:///C:/ci/mkl_random_1618854156666/work
+mkl-random
 mkl-service==2.3.0
-numpy @ file:///C:/ci/numpy_and_numpy_base_1620833114945/work
+numpy
 olefile==0.46
 opencv-python==4.5.2.54
-Pillow @ file:///C:/ci/pillow_1625663293593/work
-pyparsing @ file:///home/linux1/recipes/ci/pyparsing_1610983426697/work
+Pillow
+pyparsing
 pypng==0.0.20
-python-dateutil @ file:///home/ktietz/src/ci/python-dateutil_1611928101742/work
+python-dateutil
 scikit-learn==0.24.2
 scipy==1.7.0
 sip==4.19.13
-six @ file:///tmp/build/80754af9/six_1623709665295/work
+six
 sklearn==0.0
 threadpoolctl==2.2.0
 torch==1.9.0
-tornado @ file:///C:/ci/tornado_1606942392901/work
+tornado
 typing-extensions==3.10.0.0
 wincertstore==0.2
