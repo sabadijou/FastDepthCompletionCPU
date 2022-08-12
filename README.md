@@ -12,8 +12,8 @@ With the rise of data driven deep neural networks as a realization of universal 
 ##
 - Paper : [arXiv page](https://arxiv.org/abs/1802.00036)
 - Main repository : [Github](https://github.com/kujason/ip_basic)
--My Presentation File : [Powerpoint](https://github.com/sabadijou/FastDepthCompletionCPU/blob/master/ReadMe/Presentation.pptx)
--My Presentation File : [PDF](https://github.com/sabadijou/FastDepthCompletionCPU/blob/master/ReadMe/Presentation.pdf)
+- My Presentation File : [Powerpoint](https://github.com/sabadijou/FastDepthCompletionCPU/blob/master/ReadMe/Presentation.pptx)
+- My Presentation File : [PDF](https://github.com/sabadijou/FastDepthCompletionCPU/blob/master/ReadMe/Presentation.pdf)
 ##
 ![Final Output](https://github.com/sabadijou/FastDepthCompletionCPU/blob/master/ReadMe/all_results.png)
 ##
@@ -22,6 +22,8 @@ With the rise of data driven deep neural networks as a realization of universal 
 - Clone the repository with following command :
 ```
 git clone https://github.com/sabadijou/FastDepthCompletionCPU.git
+cd FastDepthCompletionCPU
+pip3 install -r requirements.txt
 ```
 - Download dataset from below :
 ```
