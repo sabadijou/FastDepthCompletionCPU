@@ -1,5 +1,6 @@
 # Image Processing for Basic Depth Completion (IP-Basic)
 Paper title: In Defense of Classical Image Processing: Fast Depth Completion on the CPU
+
 Abstract: 
 With the rise of data driven deep neural networks
 as a realization of universal function approximators, most
